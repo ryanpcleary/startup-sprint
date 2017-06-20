@@ -22,11 +22,9 @@ class App < Sinatra::Base
   end
 
   get '/reddit' do
-    # TODO: we can probably get the listings with something like:
-    # JSON.parse(RestClient.get('http://reddit.com/.json'))
-
-    @listings = []
-
+    require 'json'
+    require 'rest-client'
+    @x = JSON.parse(RestClient.get('http://reddit.com/.json'))
     erb :reddit
   end
 
